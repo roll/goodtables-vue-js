@@ -1,12 +1,15 @@
 var path = require('path')
 var webpack = require('webpack')
+var ENV = process.env.NODE_ENV;
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: (ENV === 'production') ? 'goodtables-vue.min.js' : 'goodtables-vue.js',
+    library: 'goodtablesVue',
+    libraryTarget: 'var',
   },
   module: {
     rules: [
@@ -53,7 +56,7 @@ module.exports = {
   devtool: '#eval-source-map'
 }
 
-if (process.env.NODE_ENV === 'production') {
+if (ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
