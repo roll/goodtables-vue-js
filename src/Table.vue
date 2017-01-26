@@ -4,31 +4,50 @@ import ErrorList from './ErrorList.vue'
 
 export default {
   props: ['table'],
+  data: function() {
+    return {
+      id1: Math.random().toString(36).substring(10),
+      id2: Math.random().toString(36).substring(10),
+      show: false,
+    }
+  },
   components: {
     'error-grid': ErrorGrid,
     'error-list': ErrorList,
-  }
+  },
 }
 </script>
 
 <template>
 <div class="root">
-  <h2>{{ table.source }}</h2>
-  <div>
-    <input id="tab1" type="radio" name="tabs" checked>
-    <label for="tab1">Error list view</label>
-    <input id="tab2" type="radio" name="tabs">
-    <label for="tab2">Interactive view</label>
+  <h3 @click="show = !show">{{ table.source }} [{{ (show) ? '-': '+' }}]</h3>
+  <div v-if="show">
+    <input :id="id1" type="radio" name="tabs" checked>
+    <label :for="id1">Error list view</label>
+    <input :id="id2" type="radio" name="tabs">
+    <label :for="id2">Interactive view</label>
+    <error-list :table="table" />
   </div>
-  <error-list :table="table" />
+</div>
 </template>
 
 <style scoped>
+h3 {
+  display: inline-block;
+  color: #d9534f;
+}
+
+h3:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 input {
   display: none;
 }
 
 label {
+  width: 10em;
   display: inline-block;
   margin: 0 0 -1px;
   padding: 15px 25px;
@@ -48,6 +67,5 @@ input:checked + label {
   border: 1px solid #d9534f;
   border-top: 2px solid #d9534f;
   border-bottom: 1px solid #fff;
-  margin-bottom: -1px;
 }
 </style>
