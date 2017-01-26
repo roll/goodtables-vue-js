@@ -1,0 +1,88 @@
+{
+    "valid": false,
+    "time": 0.027,
+    "errors": [],
+    "tables": [
+        {
+            "valid": false,
+            "time": 0.02,
+            "errors": [
+                {
+                    "message": "Header in column 3 is blank",
+                    "column-number": 3,
+                    "row": null,
+                    "code": "blank-header",
+                    "row-number": null
+                },
+                {
+                    "message": "Header in column 4 is duplicated to header in column(s) 2",
+                    "column-number": 4,
+                    "row": null,
+                    "code": "duplicate-header",
+                    "row-number": null
+                },
+                {
+                    "message": "Row 2 has a missing value in column 3",
+                    "column-number": 3,
+                    "row": [
+                        "1",
+                        "english"
+                    ],
+                    "code": "missing-value",
+                    "row-number": 2
+                },
+                {
+                    "message": "Row 2 has a missing value in column 4",
+                    "column-number": 4,
+                    "row": [
+                        "1",
+                        "english"
+                    ],
+                    "code": "missing-value",
+                    "row-number": 2
+                },
+                {
+                    "message": "Row 3 is duplicated to row(s) 2",
+                    "column-number": null,
+                    "row": [
+                        "1",
+                        "english"
+                    ],
+                    "code": "duplicate-row",
+                    "row-number": 3
+                },
+                {
+                    "message": "Row 4 is completely blank",
+                    "column-number": null,
+                    "row": [],
+                    "code": "blank-row",
+                    "row-number": 4
+                },
+                {
+                    "message": "Row 5 has an extra value in column 5",
+                    "column-number": 5,
+                    "row": [
+                        "2",
+                        "german",
+                        "1",
+                        "2",
+                        "3"
+                    ],
+                    "code": "extra-value",
+                    "row-number": 5
+                }
+            ],
+            "row-count": 5,
+            "headers": [
+                "id",
+                "name",
+                "",
+                "name"
+            ],
+            "error-count": 7,
+            "source": "data/invalid.csv"
+        }
+    ],
+    "table-count": 1,
+    "error-count": 7
+}

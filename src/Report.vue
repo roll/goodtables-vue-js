@@ -5,8 +5,8 @@ export default {
 </script>
 
 <template>
-<div>
-  <h1>{{ report }}</h1>
+<div class="root">
+  <h1>{{ report.time }}</h1>
   <h2>Essential Links</h2>
   <ul>
     <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -24,8 +24,8 @@ export default {
 </div>
 </template>
 
-<style>
-:root {
+<style scoped>
+.root {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,7 +34,6 @@ export default {
   margin-top: 60px;
 }
 
-<style scoped>
 h1, h2 {
   font-weight: normal;
 }

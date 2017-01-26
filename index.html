@@ -7,14 +7,25 @@
   <body>
     <div id="app"></div>
     <script src="//unpkg.com/vue@2.1.10/dist/vue.js"></script>
-    <script src="/dist/goodtables-vue.js"></script>
+    <script src="dist/goodtables-vue.js"></script>
     <script>
       var app = new Vue({
         el: '#app',
+        data: {
+          report: null,
+        },
         components: {
           'goodtables-report': goodtablesVue.Report,
         },
-        template: '<goodtables-report report="test" />',
+        template: '<goodtables-report v-if="report" :report="report" />',
+        mounted: function () {
+          fetch('data/report.json').then(response => {
+            response.json().then(report => {
+              console.log(report)
+              this.report = report
+            })
+          })
+        }
       })
     </script>
   </body>
