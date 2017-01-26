@@ -9,6 +9,7 @@ export default {
       id1: Math.random().toString(36).substring(10),
       id2: Math.random().toString(36).substring(10),
       show: false,
+      grid: false,
     }
   },
   components: {
@@ -23,10 +24,11 @@ export default {
   <h3 @click="show = !show">{{ table.source }} [{{ (show) ? '-': '+' }}]</h3>
   <div v-if="show">
     <input :id="id1" type="radio" name="tabs" checked>
-    <label :for="id1">Error list view</label>
+    <label :for="id1" @click="grid = false">Error list view</label>
     <input :id="id2" type="radio" name="tabs">
-    <label :for="id2">Interactive view</label>
-    <error-list :table="table" />
+    <label :for="id2" @click="grid = true">Interactive view</label>
+    <error-grid v-if="grid" :table="table" />
+    <error-list v-else :table="table" />
   </div>
 </div>
 </template>

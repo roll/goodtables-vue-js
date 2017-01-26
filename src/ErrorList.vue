@@ -24,6 +24,7 @@ export default {
       </tr>
     </tbody>
   </table>
+</div>
 </template>
 
 <style scoped>
