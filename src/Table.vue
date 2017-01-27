@@ -1,6 +1,6 @@
 <script>
-import ErrorGrid from './ErrorGrid.vue'
-import ErrorList from './ErrorList.vue'
+import TableErrors from './TableErrors.vue'
+import TableValues from './TableValues.vue'
 
 export default {
   props: ['table'],
@@ -9,12 +9,12 @@ export default {
       id1: Math.random().toString(36).substring(10),
       id2: Math.random().toString(36).substring(10),
       show: false,
-      grid: false,
+      values: false,
     }
   },
   components: {
-    'error-grid': ErrorGrid,
-    'error-list': ErrorList,
+    'table-values': TableValues,
+    'table-errors': TableErrors,
   },
 }
 </script>
@@ -24,11 +24,11 @@ export default {
   <h3 @click="show = !show">{{ table.source }} [{{ (show) ? '-': '+' }}]</h3>
   <div v-if="show">
     <input :id="id1" type="radio" name="tabs" checked>
-    <label :for="id1" @click="grid = false">Error list view</label>
+    <label :for="id1" @click="values = false">Errors view</label>
     <input :id="id2" type="radio" name="tabs">
-    <label :for="id2" @click="grid = true">Interactive view</label>
-    <error-grid v-if="grid" :table="table" />
-    <error-list v-else :table="table" />
+    <label :for="id2" @click="values = true">Values view</label>
+    <table-values v-if="values" :table="table" />
+    <table-errors v-else :table="table" />
   </div>
 </div>
 </template>
