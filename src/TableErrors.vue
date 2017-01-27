@@ -17,7 +17,7 @@ export default {
     </thead>
     <tbody>
       <tr v-for="error of table.errors">
-        <td>{{ error['row-number'] || '-' }}</td>
+        <td>{{ error['row-number'] || 'H' }}</td>
         <td>{{ error['column-number'] || '-' }}</td>
         <td>{{ error.code }}</td>
         <td>{{ error.message }}</td>
