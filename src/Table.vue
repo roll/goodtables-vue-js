@@ -21,7 +21,11 @@ export default {
 
 <template>
 <div class="root">
-  <h3 @click="show = !show">{{ table.source }} [{{ (show) ? '-': '+' }}]</h3>
+  <h3 @click="show = !show">
+    {{ table.source }}
+    [{{ table['row-count'] }} rows/{{ table['error-count'] }} errors]
+    [{{ (show) ? '-': '+' }}]
+  </h3>
   <div v-if="show">
     <input :id="id1" type="radio" name="tabs" checked>
     <label :for="id1" @click="values = false">Errors view</label>
