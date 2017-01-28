@@ -23,12 +23,12 @@ https://roll.github.io/goodtables-vue-js/
       var app = new Vue({
         el: '#app',
         data: {
-          report,
+          report, // Your goodtables report
         },
         components: {
           'goodtables-report': goodtablesVue.Report,
         },
-        template: '<goodtables-report v-if="report" :report="report" />',
+        template: '<goodtables-report :report="report" />',
       })
     </script>
   </body>
