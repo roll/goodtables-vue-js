@@ -4,7 +4,7 @@ Vue component to show goodtables report
 
 ## Demo
 
-https://roll.github.io/goodtables-vue-js/
+https://frictionlessdata.github.io/goodtables-vue-js/
 
 ## Usage
 
