@@ -21,31 +21,44 @@ export default {
 
 <template>
 <div class="root">
-  <h3 @click="show = !show">
-    {{ table.source }}
-    [{{ table['row-count'] }} rows/{{ table['error-count'] }} errors]
-    [{{ (show) ? '-': '+' }}]
-  </h3>
-  <div v-if="show">
-    <input :id="id1" type="radio" name="tabs" checked>
-    <label :for="id1" @click="values = false">Errors view</label>
-    <input :id="id2" type="radio" name="tabs">
-    <label :for="id2" @click="values = true">Values view</label>
-    <table-values v-if="values" :table="table" />
-    <table-errors v-else :table="table" />
-  </div>
+  <template v-if="table.valid">
+    <h3>
+      {{ table.source }}
+      [{{ table['row-count'] }} rows/{{ table['error-count'] }} errors]
+    </h3>
+  </template>
+  <template v-else>
+    <h3 @click="show = !show" class="error">
+      {{ table.source }}
+      [{{ table['row-count'] }} rows/{{ table['error-count'] }} errors]
+      [{{ (show) ? '-': '+' }}]
+    </h3>
+    <div v-if="show">
+      <input :id="id1" type="radio" name="tabs" checked>
+      <label :for="id1" @click="values = false">Errors view</label>
+      <input :id="id2" type="radio" name="tabs">
+      <label :for="id2" @click="values = true">Values view</label>
+      <table-values v-if="values" :table="table" />
+      <table-errors v-else :table="table" />
+    </div>
+  </template>
 </div>
 </template>
 
 <style scoped>
 h3 {
   display: inline-block;
-  color: #d9534f;
+  color: #5cb85c;
+  margin: 10px 0;
 }
 
-h3:hover {
-  text-decoration: underline;
+h3.error {
+  color: #d9534f;
   cursor: pointer;
+}
+
+h3.error:hover {
+  text-decoration: underline;
 }
 
 input {
