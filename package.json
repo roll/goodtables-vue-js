@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "npm run build:umd && npm run build:umd-min",
-    "build:umd": "webpack --progress --hide-modules",
+    "build:umd": "webpack --output-pathinfo --progress --hide-modules",
     "build:umd-min": "NODE_ENV=production webpack --progress --hide-modules",
     "dev": "webpack-dev-server --open --inline --hot",
     "test": "nyc --check-coverage --lines 90 mocha --opts .mocharc"

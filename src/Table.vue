@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-<div class="root">
+<div>
   <template v-if="table.valid">
     <h3>
       {{ table.source }}
@@ -44,47 +44,3 @@ export default {
   </template>
 </div>
 </template>
-
-<style scoped>
-h3 {
-  display: inline-block;
-  color: #5cb85c;
-  margin: 10px 0;
-}
-
-h3.error {
-  color: #d9534f;
-  cursor: pointer;
-}
-
-h3.error:hover {
-  text-decoration: underline;
-}
-
-input {
-  display: none;
-}
-
-label {
-  width: 10em;
-  display: inline-block;
-  margin: 0 0 -1px;
-  padding: 15px 25px;
-  font-weight: 600;
-  text-align: center;
-  color: #bbb;
-  border: 1px solid transparent;
-}
-
-label:hover {
-  color: #888;
-  cursor: pointer;
-}
-
-input:checked + label {
-  color: #333;
-  border: 1px solid #d9534f;
-  border-top: 2px solid #d9534f;
-  border-bottom: 1px solid #fff;
-}
-</style>

@@ -50,8 +50,8 @@ export default {
 </script>
 
 <template>
-<div class="root">
-  <table>
+<div>
+  <table class="values">
     <tbody>
       <template v-for="(row, rowNumber) of rows" v-if="row">
         <tr @click="toggleExpandedRow(rowNumber)">
@@ -74,37 +74,3 @@ export default {
   <p class="help">*click on a row to see errors</p>
 </div>
 </template>
-
-<style scoped>
-table {
-  min-width: 50em;
-}
-
-td {
-  cursor: pointer;
-}
-
-td.error {
-  background-color: #d9534f;
-  color: #fff;
-}
-
-td.row-number {
-  text-align: center;
-  padding: 10px 5px;
-  background-color: #f0ad4e;
-  color: #fff;
-}
-
-td.errors {
-  padding: 10px 5px;
-  background-color: #eee;
-  color: #777;
-}
-
-.help {
-  padding-left: 15px;
-  font-style: italic;
-  color: #888;
-}
-</style>
