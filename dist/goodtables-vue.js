@@ -201,6 +201,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
 
+  computed: {
+    source: function source() {
+      var source = this.table.source;
+      if (source.length > 50) {
+        source = '<truncated>/' + this.table.source.split('/').pop();
+      }
+      return source;
+    }
+  },
   components: {
     'table-values': __WEBPACK_IMPORTED_MODULE_1__TableValues_vue___default.a,
     'table-errors': __WEBPACK_IMPORTED_MODULE_0__TableErrors_vue___default.a
@@ -884,14 +893,14 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [(_vm.table.valid) ? [_c('h3', [_vm._v("\n      " + _vm._s(_vm.table.source) + "\n      [" + _vm._s(_vm.table['row-count']) + " rows/" + _vm._s(_vm.table['error-count']) + " errors]\n    ")])] : [_c('h3', {
+  return _c('div', [(_vm.table.valid) ? [_c('h3', [_vm._v("\n      " + _vm._s(_vm.source) + "\n      [" + _vm._s(_vm.table['row-count']) + " rows/" + _vm._s(_vm.table['error-count']) + " errors]\n    ")])] : [_c('h3', {
     staticClass: "error",
     on: {
       "click": function($event) {
         _vm.show = !_vm.show
       }
     }
-  }, [_vm._v("\n      " + _vm._s(_vm.table.source) + "\n      [" + _vm._s(_vm.table['row-count']) + " rows/" + _vm._s(_vm.table['error-count']) + " errors]\n      [" + _vm._s((_vm.show) ? '-' : '+') + "]\n    ")]), _vm._v(" "), (_vm.show) ? _c('div', [_c('input', {
+  }, [_vm._v("\n      " + _vm._s(_vm.source) + "\n      [" + _vm._s(_vm.table['row-count']) + " rows/" + _vm._s(_vm.table['error-count']) + " errors]\n      [" + _vm._s((_vm.show) ? '-' : '+') + "]\n    ")]), _vm._v(" "), (_vm.show) ? _c('div', [_c('input', {
     attrs: {
       "id": _vm.id1,
       "type": "radio",
