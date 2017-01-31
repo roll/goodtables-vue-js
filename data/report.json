@@ -93,7 +93,7 @@
                 "c"
             ],
             "error-count": 0,
-            "source": "data/valid.csv"
+            "source": "https://raw.githubusercontent.com/frictionlessdata/ADB-User-Study/3ca0be9be25de1b3a7110ada06c84fa49b7cff96/_enrich_node1592.csv"
         }
     ],
     "table-count": 2,

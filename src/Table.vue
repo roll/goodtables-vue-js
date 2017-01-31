@@ -12,6 +12,15 @@ export default {
       values: false,
     }
   },
+  computed: {
+    source() {
+      let source = this.table.source
+      if (source.length > 50) {
+        source = `<truncated>/${this.table.source.split('/').pop()}`
+      }
+      return source
+    },
+  },
   components: {
     'table-values': TableValues,
     'table-errors': TableErrors,
@@ -23,13 +32,13 @@ export default {
 <div>
   <template v-if="table.valid">
     <h3>
-      {{ table.source }}
+      {{ source }}
       [{{ table['row-count'] }} rows/{{ table['error-count'] }} errors]
     </h3>
   </template>
   <template v-else>
     <h3 @click="show = !show" class="error">
-      {{ table.source }}
+      {{ source }}
       [{{ table['row-count'] }} rows/{{ table['error-count'] }} errors]
       [{{ (show) ? '-': '+' }}]
     </h3>
