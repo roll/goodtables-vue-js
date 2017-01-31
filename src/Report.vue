@@ -5,7 +5,7 @@ export default {
   props: ['report'],
   components: {
     'report-table': Table,
-  }
+  },
 }
 </script>
 

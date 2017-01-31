@@ -3,4 +3,4 @@ import './styles.css'
 
 export {
   Report,
-};
+}

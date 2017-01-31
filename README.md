@@ -34,3 +34,9 @@ https://frictionlessdata.github.io/goodtables-vue-js/
   </body>
 </html>
 ```
+
+## Development
+
+```bash
+$ npm run dev
+```

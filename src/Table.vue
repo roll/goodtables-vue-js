@@ -4,7 +4,7 @@ import TableValues from './TableValues.vue'
 
 export default {
   props: ['table'],
-  data: function() {
+  data() {
     return {
       id1: Math.random().toString(36).substring(10),
       id2: Math.random().toString(36).substring(10),
