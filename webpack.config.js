@@ -4,7 +4,7 @@ const ENV = process.env.NODE_ENV;
 
 // Base
 
-module.exports = {
+const webpackConfig = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -54,9 +54,9 @@ module.exports = {
 // Production
 
 if (ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  webpackConfig.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
+  webpackConfig.plugins = (webpackConfig.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -73,3 +73,7 @@ if (ENV === 'production') {
     })
   ])
 }
+
+// Module API
+
+module.exports = webpackConfig
