@@ -12,10 +12,6 @@ script:
   - npm run build
   - npm run test
 
-after_script:
-  - npm install codecov
-  - cat ./coverage/lcov.info | codecov
-
 deploy:
   provider: npm
   email: "eskarev@gmail.com"
