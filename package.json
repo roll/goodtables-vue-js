@@ -1,7 +1,7 @@
 {
   "name": "goodtables-vue",
-  "description": "Vue component to render goodtables reports",
   "version": "0.1.0",
+  "description": "Vue component to render goodtables reports",
   "author": "roll <eskarev@gmail.com>",
   "main": "dist/goodtables-vue.js",
   "license": "MIT",
