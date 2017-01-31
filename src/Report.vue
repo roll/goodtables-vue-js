@@ -12,7 +12,7 @@ export default {
 <template>
 <div class="goodtables-vue-report">
   <h1>Report</h1>
-  <table class="summary">
+  <table class="summary" :class="{error: !report.valid}">
     <tbody>
       <tr><th>valid</th><td>{{ (report.valid) ? 'yes' : 'no' }}</td></tr>
       <tr><th>tables</th><td>{{ report['table-count'] }}</td></tr>

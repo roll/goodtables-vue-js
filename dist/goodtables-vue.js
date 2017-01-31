@@ -336,7 +336,7 @@ exports = module.exports = __webpack_require__(/*! ./../~/css-loader/lib/css-bas
 
 
 // module
-exports.push([module.i, ".goodtables-vue-report {\n  color: #333;\n  font-family: monospace;\n  letter-spacing: -0.5px;\n}\n\n.goodtables-vue-report table {\n  border: 2px solid #d9534f;\n  border-radius: 3px;\n  background-color: #fff;\n}\n\n.goodtables-vue-report table.summary {\n  width: 10em;\n}\n\n.goodtables-vue-report table.values {\n  min-width: 50em;\n}\n\n.goodtables-vue-report th {\n  background-color: #d9534f;\n  color: #eee;\n}\n\n.goodtables-vue-report td {\n  background-color: #f9f9f9;\n}\n\n.goodtables-vue-report th,\n.goodtables-vue-report td {\n  padding: 10px 20px;\n  height: 1em;\n}\n\n.goodtables-vue-report th.active {\n  color: #fff;\n}\n\n.goodtables-vue-report table.values td {\n  cursor: pointer;\n}\n\n.goodtables-vue-report td.error {\n  background-color: #d9534f;\n  color: #fff;\n}\n\n.goodtables-vue-report td.row-number {\n  text-align: center;\n  padding: 10px 5px;\n  background-color: #f0ad4e;\n  color: #fff;\n}\n\n.goodtables-vue-report td.errors {\n  padding: 10px 5px;\n  background-color: #eee;\n  color: #777;\n}\n\n.goodtables-vue-report h2 {\n  margin-bottom: 10px;\n}\n\n.goodtables-vue-report h3 {\n  display: inline-block;\n  color: #5cb85c;\n  margin: 10px 0;\n}\n\n.goodtables-vue-report h3.error {\n  color: #d9534f;\n  cursor: pointer;\n}\n\n.goodtables-vue-report h3.error:hover {\n  text-decoration: underline;\n}\n\n.goodtables-vue-report input {\n  display: none;\n}\n\n.goodtables-vue-report label {\n  width: 10em;\n  display: inline-block;\n  margin: 0 0 -1px;\n  padding: 15px 25px;\n  font-weight: 600;\n  text-align: center;\n  color: #bbb;\n  border: 1px solid transparent;\n}\n\n.goodtables-vue-report label:hover {\n  color: #888;\n  cursor: pointer;\n}\n\n.goodtables-vue-report input:checked + label {\n  color: #333;\n  border: 1px solid #d9534f;\n  border-top: 2px solid #d9534f;\n  border-bottom: 1px solid #fff;\n}\n\n.goodtables-vue-report p.help {\n  padding-left: 15px;\n  font-style: italic;\n  color: #888;\n}\n", ""]);
+exports.push([module.i, ".goodtables-vue-report {\n  color: #333;\n  font-family: monospace;\n  letter-spacing: -0.5px;\n}\n\n.goodtables-vue-report table {\n  border: 2px solid #5cb85c;\n  border-radius: 3px;\n  background-color: #fff;\n}\n\n.goodtables-vue-report table.error {\n  border: 2px solid #d9534f;\n}\n\n.goodtables-vue-report table.summary {\n  width: 10em;\n}\n\n.goodtables-vue-report table.values {\n  min-width: 50em;\n}\n\n.goodtables-vue-report th {\n  background-color: #5cb85c;\n  color: #eee;\n}\n\n.goodtables-vue-report table.error th {\n  background-color: #d9534f;\n  color: #eee;\n}\n\n.goodtables-vue-report td {\n  background-color: #f9f9f9;\n}\n\n.goodtables-vue-report th,\n.goodtables-vue-report td {\n  padding: 10px 20px;\n  height: 1em;\n}\n\n.goodtables-vue-report th.active {\n  color: #fff;\n}\n\n.goodtables-vue-report table.values td {\n  cursor: pointer;\n}\n\n.goodtables-vue-report td.error {\n  background-color: #d9534f;\n  color: #fff;\n}\n\n.goodtables-vue-report td.row-number {\n  text-align: center;\n  padding: 10px 5px;\n  background-color: #f0ad4e;\n  color: #fff;\n}\n\n.goodtables-vue-report td.errors {\n  padding: 10px 5px;\n  background-color: #eee;\n  color: #777;\n}\n\n.goodtables-vue-report h2 {\n  margin-bottom: 10px;\n}\n\n.goodtables-vue-report h3 {\n  display: inline-block;\n  color: #5cb85c;\n  margin: 10px 0;\n}\n\n.goodtables-vue-report h3.error {\n  color: #d9534f;\n  cursor: pointer;\n}\n\n.goodtables-vue-report h3.error:hover {\n  text-decoration: underline;\n}\n\n.goodtables-vue-report input {\n  display: none;\n}\n\n.goodtables-vue-report label {\n  width: 10em;\n  display: inline-block;\n  margin: 0 0 -1px;\n  padding: 15px 25px;\n  font-weight: 600;\n  text-align: center;\n  color: #bbb;\n  border: 1px solid transparent;\n}\n\n.goodtables-vue-report label:hover {\n  color: #888;\n  cursor: pointer;\n}\n\n.goodtables-vue-report input:checked + label {\n  color: #333;\n  border: 1px solid #d9534f;\n  border-top: 2px solid #d9534f;\n  border-bottom: 1px solid #fff;\n}\n\n.goodtables-vue-report p.help {\n  padding-left: 15px;\n  font-style: italic;\n  color: #888;\n}\n", ""]);
 
 // exports
 
@@ -823,7 +823,7 @@ module.exports = __vue_exports__
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('table', {
-    staticClass: "values"
+    staticClass: "values error"
   }, [_c('tbody', [_vm._l((_vm.rows), function(row, rowNumber) {
     return (row) ? [_c('tr', {
       on: {
@@ -869,7 +869,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('table', [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.table.errors), function(error) {
+  return _c('div', [_c('table', {
+    staticClass: "error"
+  }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.table.errors), function(error) {
     return _c('tr', [_c('td', [_vm._v(_vm._s(error['row-number'] || 'H'))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(error['column-number'] || '-'))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(error.code))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(error.message))])])
   }))])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -962,7 +964,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "goodtables-vue-report"
   }, [_c('h1', [_vm._v("Report")]), _vm._v(" "), _c('table', {
-    staticClass: "summary"
+    staticClass: "summary",
+    class: {
+      error: !_vm.report.valid
+    }
   }, [_c('tbody', [_c('tr', [_c('th', [_vm._v("valid")]), _c('td', [_vm._v(_vm._s((_vm.report.valid) ? 'yes' : 'no'))])]), _vm._v(" "), _c('tr', [_c('th', [_vm._v("tables")]), _c('td', [_vm._v(_vm._s(_vm.report['table-count']))])]), _vm._v(" "), _c('tr', [_c('th', [_vm._v("errors")]), _c('td', [_vm._v(_vm._s(_vm.report['error-count']))])]), _vm._v(" "), _c('tr', [_c('th', [_vm._v("time")]), _c('td', [_vm._v(_vm._s(_vm.report.time))])])])]), _vm._v(" "), _c('h2', [_vm._v("Tables")]), _vm._v(" "), _vm._l((_vm.report.tables), function(table) {
     return _c('report-table', {
       attrs: {

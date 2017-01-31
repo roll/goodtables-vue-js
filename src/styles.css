@@ -5,9 +5,13 @@
 }
 
 .goodtables-vue-report table {
-  border: 2px solid #d9534f;
+  border: 2px solid #5cb85c;
   border-radius: 3px;
   background-color: #fff;
+}
+
+.goodtables-vue-report table.error {
+  border: 2px solid #d9534f;
 }
 
 .goodtables-vue-report table.summary {
@@ -19,6 +23,11 @@
 }
 
 .goodtables-vue-report th {
+  background-color: #5cb85c;
+  color: #eee;
+}
+
+.goodtables-vue-report table.error th {
   background-color: #d9534f;
   color: #eee;
 }

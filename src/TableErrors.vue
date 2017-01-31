@@ -6,7 +6,7 @@ export default {
 
 <template>
 <div>
-  <table>
+  <table class="error">
     <thead>
       <tr>
         <th>Row</th>

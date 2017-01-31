@@ -51,7 +51,7 @@ export default {
 
 <template>
 <div>
-  <table class="values">
+  <table class="values error">
     <tbody>
       <template v-for="(row, rowNumber) of rows" v-if="row">
         <tr @click="toggleExpandedRow(rowNumber)">
