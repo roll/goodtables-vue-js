@@ -7,26 +7,26 @@ export default {
     }
   },
   computed: {
-    rows () {
+    rows() {
       const rows = []
-      for (let error of this.table.errors) {
+      for (const error of this.table.errors) {
         const rowNumber = error['row-number'] || 0
         const values = [null, ...((rowNumber === 0) ? this.table.headers : error.row)]
         const headers = [null, ...this.table.headers]
         // Initial
         if (!rows[rowNumber]) rows[rowNumber] = {values: [], badcols: [], errors: []}
         // Values
-        if (error['code'] === 'blank-row') {
+        if (error.code === 'blank-row') {
           rows[rowNumber].values = headers.map(() => '')
         } else {
           rows[rowNumber].values = values
-          if (error['code'] === 'missing-value') {
+          if (error.code === 'missing-value') {
             rows[rowNumber].values[error['column-number']] = ''
           }
         }
         // Badcols
         if (!error['column-number']) {
-          let base = (error['code'] === 'blank-row') ? headers : values
+          const base = (error.code === 'blank-row') ? headers : values
           rows[rowNumber].badcols = base.map((value, index) => index).filter(Boolean)
         } else {
           rows[rowNumber].badcols.push(error['column-number'])
@@ -38,20 +38,20 @@ export default {
     },
   },
   methods: {
-    toggleExpandedRow (rowNumber) {
+    toggleExpandedRow(rowNumber) {
       if (this.expandedRows.includes(rowNumber)) {
         this.expandedRows = this.expandedRows.filter(value => value !== rowNumber)
       } else {
         this.expandedRows.push(rowNumber)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <template>
-<div class="root">
-  <table>
+<div>
+  <table class="values">
     <tbody>
       <template v-for="(row, rowNumber) of rows" v-if="row">
         <tr @click="toggleExpandedRow(rowNumber)">
@@ -74,37 +74,3 @@ export default {
   <p class="help">*click on a row to see errors</p>
 </div>
 </template>
-
-<style scoped>
-table {
-  min-width: 50em;
-}
-
-td {
-  cursor: pointer;
-}
-
-td.error {
-  background-color: #d9534f;
-  color: #fff;
-}
-
-td.row-number {
-  text-align: center;
-  padding: 10px 5px;
-  background-color: #f0ad4e;
-  color: #fff;
-}
-
-td.errors {
-  padding: 10px 5px;
-  background-color: #eee;
-  color: #777;
-}
-
-.help {
-  padding-left: 15px;
-  font-style: italic;
-  color: #888;
-}
-</style>

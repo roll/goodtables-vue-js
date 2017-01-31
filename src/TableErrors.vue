@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-<div class="root">
+<div>
   <table>
     <thead>
       <tr>
@@ -26,6 +26,3 @@ export default {
   </table>
 </div>
 </template>
-
-<style scoped>
-</style>
