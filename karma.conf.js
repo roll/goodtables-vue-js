@@ -24,6 +24,12 @@ const karmaConfig = (config) => {
     },
     coverageReporter: {
       dir: './coverage',
+      includeAllSources: true,
+      check: {
+        global: {
+          lines: 70,
+        },
+      },
       reporters: [
         { type: 'lcov', subdir: '.' },
         { type: 'text' },
