@@ -25,16 +25,21 @@ const webpackConfig = {
         exclude: /node_modules/
       },
       {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
         test: /\.css$/,
         loader: 'style-loader!css-loader',
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url-loader?limit=32768',
+        loader: 'url-loader',
         options: {
+          limit: 32768,
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
     ]
   },
   resolve: {
