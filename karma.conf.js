@@ -5,9 +5,11 @@ delete webpackConfig.entry
 
 const karmaConfig = (config) => {
   config.set({
+    singleRun: true,
     browsers: ['PhantomJS'],
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'sinon-chai'],
     files: ['test/index.js'],
+    reporters: ['spec', 'coverage'],
     preprocessors: {
       'test/index.js': ['webpack'],
     },
@@ -20,7 +22,13 @@ const karmaConfig = (config) => {
         opts: '.mocharc',
       },
     },
-    singleRun: true,
+    coverageReporter: {
+      dir: './coverage',
+      reporters: [
+        { type: 'lcov', subdir: '.' },
+        { type: 'text' },
+      ]
+    },
   })
 }
 
