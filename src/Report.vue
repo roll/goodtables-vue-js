@@ -24,3 +24,5 @@ export default {
   <report-table v-for="table of report.tables" :table="table" />
 </div>
 </template>
+
+<style src="./styles.css"></style>

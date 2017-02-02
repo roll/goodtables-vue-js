@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
 const ENV = process.env.NODE_ENV;
 
 // Base
@@ -13,12 +14,22 @@ const webpackConfig = {
     library: 'goodtablesVue',
     libraryTarget: 'var',
   },
-  devtool: '#eval-source-map',
   module: {
     rules: [
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: 'vue-style-loader!css-loader',
+            postcss: 'vue-style-loader!css-loader',
+          },
+          postcss: [
+            autoprefixer({
+              browsers: ['last 2 versions']
+            })
+          ],
+        },
       },
       {
         test: /\.js$/,
@@ -28,10 +39,6 @@ const webpackConfig = {
       {
         test: /\.json$/,
         loader: 'json-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader',
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -55,6 +62,7 @@ const webpackConfig = {
   performance: {
     hints: false
   },
+  devtool: '#eval-source-map',
 }
 
 // Production
