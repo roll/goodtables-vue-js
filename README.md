@@ -1,5 +1,8 @@
 # goodtables-vue-js
 
+[![Travis](https://img.shields.io/travis/frictionlessdata/goodtables-vue-js/master.svg)](https://travis-ci.org/frictionlessdata/goodtables-vue-js)
+[![Codecov](https://img.shields.io/codecov/c/github/frictionlessdata/goodtables-vue-js/master.svg)](https://codecov.io/gh/frictionlessdata/goodtables-vue-js)
+
 Vue component to show goodtables report
 
 ## Demo
