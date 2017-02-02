@@ -13,6 +13,7 @@ const webpackConfig = {
     library: 'goodtablesVue',
     libraryTarget: 'var',
   },
+  devtool: '#eval-source-map',
   module: {
     rules: [
       {
