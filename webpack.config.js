@@ -30,7 +30,7 @@ const webpackConfig = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
+        loader: 'url-loader?limit=32768',
         options: {
           name: '[name].[ext]?[hash]'
         }
