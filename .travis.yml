@@ -7,9 +7,14 @@ language:
 node_js:
   - 6
 
-script:
+before_script:
   - npm run build
+  - npm install http-server
+  - ./node_modules/.bin/http-server -s &
+
+script:
   - npm run test
+  - npm run qa
 
 after_script:
   - npm install codecov
