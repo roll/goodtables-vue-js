@@ -279,7 +279,7 @@ eval("/**\n * Translates the list format produced by css-loader into something\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _Report = __webpack_require__(/*! ./Report.vue */ 1);\n\nObject.defineProperty(exports, 'Report', {\n  enumerable: true,\n  get: function get() {\n    return _Report.Report;\n  }\n});\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXguanM/OTU1MiJdLCJuYW1lcyI6WyJSZXBvcnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O21CQUFRQSxNIiwiZmlsZSI6IjE4LmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHtSZXBvcnR9IGZyb20gJy4vUmVwb3J0LnZ1ZSdcblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyAuL3NyYy9pbmRleC5qcyJdLCJzb3VyY2VSb290IjoiIn0=");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Report = undefined;\n\nvar _Report2 = __webpack_require__(/*! ./Report.vue */ 1);\n\nvar _Report3 = _interopRequireDefault(_Report2);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.Report = _Report3.default;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXguanM/OTU1MiJdLCJuYW1lcyI6WyJSZXBvcnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7UUFBT0EsTSIsImZpbGUiOiIxOC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBSZXBvcnQgZnJvbSAnLi9SZXBvcnQudnVlJ1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vc3JjL2luZGV4LmpzIl0sInNvdXJjZVJvb3QiOiIifQ==");
 
 /***/ })
 /******/ ]);
