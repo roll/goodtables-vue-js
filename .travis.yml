@@ -16,7 +16,7 @@ script:
   - npm run test
   - npm run qa
 
-after_script:
+after_success:
   - npm install codecov
   - codecov
 
