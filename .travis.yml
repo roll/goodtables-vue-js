@@ -1,5 +1,13 @@
 sudo:
-  false
+  required
+
+dist:
+  trusty
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-set-default
 
 language:
   node_js
