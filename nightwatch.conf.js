@@ -4,7 +4,7 @@ const chromedriver = require('chromedriver')
 // Base
 
 const nightwatchConfig = {
-  src_folders: ['qa/'],
+  src_folders: ['e2e/'],
   output_folder: false,
   selenium: {
     start_process: true,
