@@ -12,8 +12,7 @@ script:
   - npm run test
 
 after_script:
-  - npm install codecov
-  - cat ./coverage/lcov.info | codecov
+  - npm install codecov && codecov
 
 deploy:
   provider: npm
