@@ -12,7 +12,8 @@ script:
   - npm run test
 
 after_script:
-  - npm install codecov && codecov
+  - npm install codecov
+  - codecov -f coverage/coverage-final.json
 
 deploy:
   provider: npm

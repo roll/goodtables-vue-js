@@ -32,6 +32,7 @@ const karmaConfig = (config) => {
       },
       reporters: [
         { type: 'lcov', subdir: '.' },
+        { type: 'json', subdir: '.'  },
         { type: 'text' },
       ]
     },
