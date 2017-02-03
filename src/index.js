@@ -1,5 +1,1 @@
-import Report from './Report.vue'
-
-export {
-  Report,
-}
+export Report from './Report.vue'

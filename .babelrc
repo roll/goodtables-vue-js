@@ -8,6 +8,7 @@
     "transform-async-to-generator",
     "transform-object-rest-spread",
     "transform-decorators-legacy",
+    "transform-export-extensions",
     "transform-class-properties"
   ],
   "env": {
