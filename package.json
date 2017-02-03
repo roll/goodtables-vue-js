@@ -20,7 +20,7 @@
     "lint": "eslint --ext js,vue src test",
     "precommit": "npm run test",
     "pretest": "npm run lint",
-    "test": "NODE_ENV=test karma start"
+    "test": "NODE_ENV=testing karma start"
   },
   "peerDependencies": {
     "vue": "^2.1.0"
