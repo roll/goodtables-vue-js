@@ -21,7 +21,7 @@ const nightwatchConfig = {
       selenium_host: 'localhost',
       silent: true,
       globals: {
-        devServerUrl: 'http://localhost:8080'
+        devServerUrl: 'http://localhost:9090'
       }
     },
     chrome: {

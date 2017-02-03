@@ -9,8 +9,6 @@ node_js:
 
 before_script:
   - npm run build
-  - npm install http-server
-  - ./node_modules/.bin/http-server -s &
 
 script:
   - npm run test
