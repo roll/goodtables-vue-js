@@ -86,6 +86,7 @@ if (!process.env.TRAVIS) {
       safari: {
         desiredCapabilities: {
           browserName: 'safari',
+          platform: 'Mac 10.11',
         },
       },
       edge: {
