@@ -17,9 +17,10 @@
     "build:umd": "webpack --output-pathinfo --progress --hide-modules",
     "build:umd-min": "NODE_ENV=production webpack --progress --hide-modules",
     "dev": "webpack-dev-server --open --inline --hot",
-    "e2e": "http-server -p 9090 -s & PID=$! && nightwatch --env chrome && kill $PID",
+    "e2e:local": "http-server -p 9090 -s & PID=$! && nightwatch --env chrome && kill $PID",
+    "e2e:remote": "http-server -p 9090 -s & PID=$! && nightwatch --env chrome,safari,edge && kill $PID",
     "lint": "eslint --ext js,vue src test",
-    "prepush": "npm run e2e",
+    "prepush": "npm run e2e:local",
     "precommit": "npm run test",
     "pretest": "npm run lint",
     "test": "NODE_ENV=testing karma start"

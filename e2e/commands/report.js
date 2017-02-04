@@ -10,7 +10,7 @@ exports.command = function(done) {
     password: process.env.SAUCE_ACCESS_KEY
   })
 
-  const sessionid = this.capabilities['webdriver.remote.sessionid'];
+  const sessionid = this.capabilities['webdriver.remote.sessionid']
   const jobName = this.currentTest.name
 
   saucelabs.updateJob(sessionid, {
