@@ -88,12 +88,6 @@ if (!process.env.TRAVIS) {
         desiredCapabilities: {
           browserName: 'microsoftedge',
         },
-        desiredCapabilities: {
-          browserName: 'firefox',
-        },
-        desiredCapabilities: {
-          browserName: 'opera',
-        },
       },
     }
   })
