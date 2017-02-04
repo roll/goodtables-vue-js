@@ -23,6 +23,7 @@ const nightwatchConfig = {
   test_settings: {
     default: {
       silent: true,
+      exclude: ['commands'],
       launch_url: 'http://localhost:9090',
       selenium_port: 80,
       selenium_host: 'ondemand.saucelabs.com',
