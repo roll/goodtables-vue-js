@@ -9,6 +9,6 @@ export default {
       .end();
   },
   afterEach: (client, done) => {
-     client.report(done);
+     client.globals.report(client, done);
   },
 };

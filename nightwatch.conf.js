@@ -1,4 +1,5 @@
 require('babel-register')
+const SauceLabs = require('saucelabs')
 const chromedriver = require('chromedriver')
 
 // Base
@@ -6,7 +7,6 @@ const chromedriver = require('chromedriver')
 let nightwatchConfig = {
   src_folders: ['e2e'],
   output_folder: false,
-  custom_commands_path : ['e2e/commands'],
 }
 
 // Local
@@ -26,14 +26,16 @@ if (!process.env.TRAVIS) {
     test_settings: {
       default: {
         silent: true,
-        exclude: ['commands'],
         launch_url: 'http://localhost:9090',
         selenium_port: 4444,
         selenium_host: 'localhost',
         desiredCapabilities: {
           javascriptEnabled: true,
           acceptSslCerts: true
-        }
+        },
+        globals: {
+          report,
+        },
       },
       chrome: {
         desiredCapabilities: {
@@ -65,7 +67,6 @@ if (!process.env.TRAVIS) {
     test_settings: {
       default: {
         silent: true,
-        exclude: ['commands'],
         launch_url: 'http://localhost:9090',
         selenium_port: 80,
         selenium_host: 'ondemand.saucelabs.com',
@@ -76,6 +77,9 @@ if (!process.env.TRAVIS) {
           'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
           javascriptEnabled: true,
           acceptSslCerts: true
+        },
+        globals: {
+          report,
         },
       },
       chrome: {
@@ -99,6 +103,28 @@ if (!process.env.TRAVIS) {
     }
   })
 
+}
+
+// Globals
+
+function report(client, done) {
+  if (!process.env.TRAVIS) {
+    done()
+    return
+  }
+
+  const saucelabs = new SauceLabs({
+    username: process.env.SAUCE_USERNAME,
+    password: process.env.SAUCE_ACCESS_KEY
+  })
+
+  const sessionid = client.capabilities['webdriver.remote.sessionid']
+  const jobName = client.currentTest.name
+
+  saucelabs.updateJob(sessionid, {
+    passed: client.currentTest.results.failed === 0,
+    name: jobName
+  }, done)
 }
 
 // Module API
