@@ -81,6 +81,7 @@ if (!process.env.TRAVIS) {
       chrome: {
         desiredCapabilities: {
           browserName: 'chrome',
+          version: 'latest',
         },
       },
       safari: {
