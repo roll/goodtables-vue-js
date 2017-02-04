@@ -1,5 +1,8 @@
-exports.command = function(cb) {
-  if (!process.env.TRAVIS) return
+exports.command = function(done) {
+  if (!process.env.TRAVIS) {
+    done()
+    return
+  }
 
   const SauceLabs = require('saucelabs')
   const saucelabs = new SauceLabs({
@@ -13,5 +16,5 @@ exports.command = function(cb) {
   saucelabs.updateJob(sessionid, {
     passed: this.currentTest.results.failed === 0,
     name: jobName
-  }, cb)
+  }, done)
 }
