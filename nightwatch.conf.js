@@ -5,6 +5,7 @@ require('babel-register')
 const nightwatchConfig = {
   src_folders: ['e2e'],
   output_folder: false,
+  custom_commands_path : ['e2e/commands'],
   selenium: {
     start_process: false,
     server_path: '',
