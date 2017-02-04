@@ -5,7 +5,7 @@
 
 [![Saucelabs](https://saucelabs.com/browser-matrix/goodtables-vue-js.svg)](https://saucelabs.com/u/goodtables-vue-js)
 
-Vue component to show goodtables report
+Vue component to show goodtables report.
 
 ## Demo
 

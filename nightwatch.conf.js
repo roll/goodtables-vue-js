@@ -81,7 +81,19 @@ if (!process.env.TRAVIS) {
       chrome: {
         desiredCapabilities: {
           browserName: 'chrome',
-        }
+        },
+        desiredCapabilities: {
+          browserName: 'safari',
+        },
+        desiredCapabilities: {
+          browserName: 'microsoftedge',
+        },
+        desiredCapabilities: {
+          browserName: 'firefox',
+        },
+        desiredCapabilities: {
+          browserName: 'opera',
+        },
       },
     }
   })
