@@ -5,6 +5,7 @@ dist:
   trusty
 
 addons:
+  sauce_connect: true
   apt:
     packages:
       - oracle-java8-set-default

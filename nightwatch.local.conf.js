@@ -1,4 +1,5 @@
 require('babel-register')
+const chromedriver = require('chromedriver')
 
 // Base
 
@@ -6,33 +7,24 @@ const nightwatchConfig = {
   src_folders: ['e2e'],
   output_folder: false,
   selenium: {
-    start_process: false,
-    server_path: '',
+    start_process: true,
+    server_path: 'node_modules/selenium-server/lib/runner/selenium-server-standalone-3.0.1.jar',
     host: '127.0.0.1',
     port: 4444,
     cli_args: {
-      'webdriver.chrome.driver': '',
-      'webdriver.ie.driver': '',
+      'webdriver.chrome.driver': chromedriver.path
     }
-  },
-  test_workers: {
-    enabled: true,
-    workers: 'auto',
   },
   test_settings: {
     default: {
       silent: true,
       launch_url: 'http://localhost:9090',
-      selenium_port: 80,
-      selenium_host: 'ondemand.saucelabs.com',
-      username : process.env.SAUCE_USERNAME,
-      access_key : process.env.SAUCE_ACCESS_KEY,
+      selenium_port: 4444,
+      selenium_host: 'localhost',
       desiredCapabilities: {
-        build: `build-${process.env.TRAVIS_JOB_NUMBER}`,
-        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
         javascriptEnabled: true,
         acceptSslCerts: true
-      },
+      }
     },
     chrome: {
       desiredCapabilities: {
