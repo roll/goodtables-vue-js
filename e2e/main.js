@@ -6,7 +6,7 @@ export default {
       .assert.containsText('h1', 'Report')
       .end();
   },
-  afterEach: function(client, done) {
-     client.register(done);
+  afterEach: (client, done) => {
+     client.report(done);
   },
 };
