@@ -2,6 +2,7 @@
 
 [![Travis](https://img.shields.io/travis/frictionlessdata/goodtables-vue-js/master.svg)](https://travis-ci.org/frictionlessdata/goodtables-vue-js)
 [![Codecov](https://img.shields.io/codecov/c/github/frictionlessdata/goodtables-vue-js/master.svg)](https://codecov.io/gh/frictionlessdata/goodtables-vue-js)
+
 [![Saucelabs](https://saucelabs.com/browser-matrix/goodtables-vue-js.svg)](https://saucelabs.com/u/goodtables-vue-js)
 
 Vue component to show goodtables report
