@@ -5,7 +5,7 @@ export default {
       .waitForElementVisible('.goodtables-vue-report', 5000)
       .assert.containsText('h1', 'Report')
       .click('h3.error')
-      .waitForElementVisible('table.error', 1000)
+      .waitForElementVisible('thead', 1000)
       .end();
   },
   afterEach: (client, done) => {
