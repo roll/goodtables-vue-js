@@ -19,8 +19,7 @@
     "dev": "webpack-dev-server --open --inline --hot",
     "e2e": "NODE_ENV=testing node rune2e.js",
     "lint": "eslint --ext js,vue src test",
-    "prepush": "npm run e2e",
-    "precommit": "npm run test",
+    "prepush": "npm run test && npm run e2e",
     "pretest": "npm run lint",
     "test": "NODE_ENV=testing karma start"
   },

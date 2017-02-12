@@ -12,7 +12,7 @@ const webpackConfig = {
     publicPath: '/dist/',
     filename: (ENV === 'production') ? 'goodtables-vue.min.js' : 'goodtables-vue.js',
     library: 'goodtablesVue',
-    libraryTarget: 'var',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
