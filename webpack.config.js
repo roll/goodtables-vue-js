@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const ENV = process.env.NODE_ENV;
 
 // Base
@@ -21,12 +22,14 @@ const webpackConfig = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            css: 'vue-style-loader!css-loader',
-            postcss: 'vue-style-loader!css-loader',
+            css: ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader',
+            })
           },
           postcss: [
             autoprefixer({
-              browsers: ['last 2 versions']
+              browsers: ['last 2 versions'],
             })
           ],
         },
@@ -34,25 +37,30 @@ const webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'url-loader',
         options: {
           limit: 32768,
-          name: '[name].[ext]?[hash]'
+          name: '[name].[ext]?[hash]',
         }
       },
     ]
   },
+  plugins: [
+    new ExtractTextPlugin(
+      'goodtables-vue.css'
+    ),
+  ],
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.common.js'
+      'vue$': 'vue/dist/vue.common.js',
     }
   },
   devServer: {
@@ -69,8 +77,10 @@ const webpackConfig = {
 
 if (ENV === 'production') {
   webpackConfig.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  webpackConfig.plugins = (webpackConfig.plugins || []).concat([
+  webpackConfig.plugins = [
+    new ExtractTextPlugin(
+      'goodtables-vue.min.css'
+    ),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -85,7 +95,7 @@ if (ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
-  ])
+  ]
 }
 
 // Module API
