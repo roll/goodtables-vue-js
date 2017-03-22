@@ -14,7 +14,7 @@ export default {
   computed: {
     errorGroups() {
       const groups = {}
-      for (let error of this.table.errors) {
+      for (const error of this.table.errors) {
 
         // Get group
         let group = groups[error.code]
@@ -36,7 +36,7 @@ export default {
         if (!row) {
           let values = error.row
           if (!error['row-number']) values = this.table.headers
-          if (error['code'] === 'blank-row') values = this.table.headers.map(() => '')
+          if (error.code === 'blank-row') values = this.table.headers.map(() => '')
           row = {
             values,
             badcols: new Set(),
