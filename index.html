@@ -21,7 +21,7 @@
         components: {
           Report: goodtablesVue.Report,
         },
-        template: '<Report v-if="report" :report="report" />',
+        template: '<div class="container"><Report v-if="report" :report="report" /></div>',
         mounted: function () {
           axios.get('data/report.json').then(res => {
             this.report = res.data

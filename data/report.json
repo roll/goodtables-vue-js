@@ -70,6 +70,16 @@
                     ],
                     "code": "extra-value",
                     "row-number": 5
+                },
+                {
+                    "message": "Row 6 is duplicated to row(s) 2",
+                    "column-number": null,
+                    "row": [
+                        "1",
+                        "english"
+                    ],
+                    "code": "duplicate-row",
+                    "row-number": 6
                 }
             ],
             "row-count": 5,
