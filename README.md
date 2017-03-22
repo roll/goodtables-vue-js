@@ -19,21 +19,31 @@ https://frictionlessdata.github.io/goodtables-vue-js/
   <head>
     <meta charset="utf-8">
     <title>goodtables-vue</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//unpkg.com/goodtables-vue@version/dist/goodtables-vue.min.css">
   </head>
   <body>
     <div id="app"></div>
-    <script src="//unpkg.com/vue@version/dist/vue.js"></script>
+    <script src="//unpkg.com/axios@0.15.3/dist/axios.js"></script>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//unpkg.com/vue@2.1.10/dist/vue.js"></script>
     <script src="//unpkg.com/goodtables-vue@version/dist/goodtables-vue.min.js"></script>
     <script>
       var app = new Vue({
         el: '#app',
         data: {
-          report, // Your goodtables report
+          report: null,
         },
         components: {
-          'goodtables-report': goodtablesVue.Report,
+          Report: goodtablesVue.Report,
         },
-        template: '<goodtables-report :report="report" />',
+        template: '<div class="container"><Report v-if="report" :report="report" /></div>',
+        mounted: function () {
+          axios.get('data/report.json').then(res => {
+            this.report = res.data
+          })
+        }
       })
     </script>
   </body>
@@ -44,4 +54,6 @@ https://frictionlessdata.github.io/goodtables-vue-js/
 
 ```bash
 $ npm run dev
+$ npm run build
+$ npm run test
 ```
