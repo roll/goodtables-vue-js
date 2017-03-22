@@ -43,6 +43,11 @@ export default {
           }
         }
 
+        // Ensure missing value
+        if (error.code === 'missing-value') {
+          row.values[error['column-number'] - 1] = ''
+        }
+
         // Add row badcols
         if (error['column-number']) {
           row.badcols.add(error['column-number'])
