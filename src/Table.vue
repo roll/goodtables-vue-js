@@ -1,55 +1,29 @@
 <script>
-import TableErrors from './TableErrors.vue'
-import TableValues from './TableValues.vue'
+import Error from './Error.vue'
 
 export default {
-  props: ['table'],
-  data() {
-    return {
-      id1: Math.random().toString(36).substring(10),
-      id2: Math.random().toString(36).substring(10),
-      show: false,
-      values: false,
-    }
-  },
-  computed: {
-    source() {
-      let source = this.table.source
-      if (source.length > 50) {
-        source = `<truncated>/${this.table.source.split('/').pop()}`
-      }
-      return source
-    },
+  props: {
+    table: Object,
+    tableCount: Number,
+    tableNumber: Number,
   },
   components: {
-    'table-values': TableValues,
-    'table-errors': TableErrors,
+    Error,
   },
 }
 </script>
 
 <template>
 <div>
-  <template v-if="table.valid">
-    <h3>
-      {{ source }}
-      [{{ table['row-count'] }} rows/{{ table['error-count'] }} errors]
-    </h3>
-  </template>
-  <template v-else>
-    <h3 @click="show = !show" class="error">
-      {{ source }}
-      [{{ table['row-count'] }} rows/{{ table['error-count'] }} errors]
-      [{{ (show) ? '-': '+' }}]
-    </h3>
-    <div v-if="show">
-      <input :id="id1" type="radio" name="tabs" checked>
-      <label :for="id1" @click="values = false">Errors view</label>
-      <input :id="id2" type="radio" name="tabs">
-      <label :for="id2" @click="values = true">Values view</label>
-      <table-values v-if="values" :table="table" />
-      <table-errors v-else :table="table" />
-    </div>
-  </template>
+
+  <h4 class="table-heading">
+    <span>
+      <a class="table-name">{{ table.source }}</a>
+      <a class="table-count">File {{ tableNumber }} of {{ tableCount }}</a>
+    </span>
+  </h4>
+
+  <Error name="name" type="type" :count="1">
+
 </div>
 </template>

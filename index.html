@@ -3,10 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>goodtables-vue</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
     <div id="app"></div>
-    <script src="//unpkg.com/whatwg-fetch@2.0.2/fetch.js"></script>
+    <script src="//unpkg.com/axios@0.15.3/dist/axios.js"></script>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//unpkg.com/vue@2.1.10/dist/vue.js"></script>
     <script src="dist/goodtables-vue.js"></script>
     <script>
@@ -16,14 +19,12 @@
           report: null,
         },
         components: {
-          'goodtables-report': goodtablesVue.Report,
+          Report: goodtablesVue.Report,
         },
-        template: '<goodtables-report v-if="report" :report="report" />',
+        template: '<Report v-if="report" :report="report" />',
         mounted: function () {
-          fetch('data/report.json').then(response => {
-            response.json().then(report => {
-              this.report = report
-            })
+          axios.get('data/report.json').then(res => {
+            this.report = res.data
           })
         }
       })
