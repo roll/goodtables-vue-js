@@ -1,36 +1,21 @@
-import Vue from 'vue'
+import {should} from 'chai'
+import {mount} from 'avoriaz'
 import Report from '../src/Report.vue'
-const assert = require('chai').assert
+import Table from '../src/Table.vue'
+const report = require('../data/report.json')
+should()
 
 // Tests
 
 describe('Report', () => {
 
-  it('should render table', () => {
-    const vm = new Vue({
-      template: '<div><goodtables-report :report="report" /></div>',
-      data: {
-        report: {
-          valid: true,
-          time: 0.01,
-          'row-count': 100,
-          'error-count': 0,
-          tables: [
-            {
-              valid: true,
-              source: 'table.csv',
-              'row-count': 100,
-              'error-count': 0,
-            },
-          ],
-        },
-      },
-      components: {
-        'goodtables-report': Report,
-      },
-    }).$mount()
-    const html = vm.$el.innerHTML
-    assert.include(html, 'Report')
+  it('should contain Table component', () => {
+    const propsData = {report}
+    const wrapper = mount(Report, {propsData})
+    wrapper.find(Table).should.has.length(1)
+    wrapper.find(Table)[0].propsData().table.valid.should.be.false
+    wrapper.find(Table)[0].propsData().tableNumber.should.be.equal(1)
+    wrapper.find(Table)[0].propsData().tablesCount.should.be.equal(2)
   })
 
 })

@@ -1,12 +1,13 @@
 <script>
 export default {
+  name: 'ErrorGroup',
   props: {
     errorGroup: Object,
   },
   mounted: () => {
-    $('[rel="popover"]').popover({
-      html: true,
-    })
+    // $('[rel="popover"]').popover({
+      // html: true,
+    // })
   },
 }
 </script>

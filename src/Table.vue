@@ -2,6 +2,7 @@
 import ErrorGroup from './ErrorGroup.vue'
 
 export default {
+  name: 'Table',
   props: {
     table: Object,
     tableNumber: Number,

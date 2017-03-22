@@ -2,6 +2,7 @@
 import Table from './Table.vue'
 
 export default {
+  name: 'Report',
   props: {
     report: Object,
   },

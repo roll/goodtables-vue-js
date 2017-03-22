@@ -1,29 +1,21 @@
-import Vue from 'vue'
+import {should} from 'chai'
+import {mount} from 'avoriaz'
 import Table from '../src/Table.vue'
-const assert = require('chai').assert
+import ErrorGroup from '../src/ErrorGroup.vue'
+const report = require('../data/report.json')
+should()
 
 // Tests
 
 describe('Table', () => {
 
-  it('should render table', () => {
-    const vm = new Vue({
-      template: '<div><report-table :table="table" /></div>',
-      data: {
-        table: {
-          valid: true,
-          source: 'table.csv',
-          'row-count': 100,
-          'error-count': 0,
-        },
-      },
-      components: {
-        'report-table': Table,
-      },
-    }).$mount()
-    const html = vm.$el.innerHTML
-    assert.include(html, 'table.csv')
-    assert.include(html, '[100 rows/0 errors]')
+  it('should contain ErrorGroup component', () => {
+    const propsData = {table: report.tables[0]}
+    const wrapper = mount(Table, {propsData})
+    wrapper.find(ErrorGroup).should.has.length(6)
+    wrapper.find(ErrorGroup)[0].propsData().errorGroup.name.should.equal('blank-header')
+    wrapper.find(ErrorGroup)[0].propsData().errorGroup.type.should.equal('type')
+    wrapper.find(ErrorGroup)[0].propsData().errorGroup.count.should.equal(1)
   })
 
 })
